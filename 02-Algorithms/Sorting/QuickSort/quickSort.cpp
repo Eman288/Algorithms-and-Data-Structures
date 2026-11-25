@@ -1,18 +1,32 @@
 #include <iostream>
 using namespace std;
 
+/*
+arr => the array we want to sort
+l => the starting index
+r => the ending index
+
+Quick Sort using the last element as the pivot.
+*/
 void QuickSort(int arr[], int l, int r)
 {
+    // Base case: the part contains one or zero elements
     if (r <= l) return;
+
+    // choose the last element as the pivot
     int pivot = arr[r];
+
+    // i points to the last element smaller than the pivot
     int i = l - 1;
+    // j scans the array from left to right
     int j = l;
+
     while (j < r)
     {
         if (arr[j] < pivot)
         {
             i++;
-        
+            // swap the current element with arr[i]
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
